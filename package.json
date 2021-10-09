@@ -8,10 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/marinekev88/kms-ipmon.git"
   },
-  "author": "Kevin Mollencopf",
+  "author": "Kevin Mollencopf <km@xpro.dev>",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marinekev88/kms-ipmon/issues"
+  },
+  "homepage": "https://github.com/marinekev88/kms-ipmon#readme",
   "dependencies": {
     "axios": "^0.22.0"
   },
