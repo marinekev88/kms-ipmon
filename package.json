@@ -2,9 +2,11 @@
   "name": "kms-ipmon",
   "version": "1.0.0",
   "description": "Server Public Ip Checker",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "test": "tsc && mocha --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,8 @@
   },
   "devDependencies": {
     "@types/node": "^16.10.3",
+    "chai": "^4.3.4",
+    "mocha": "^9.1.2",
     "ts-node": "^10.2.1",
     "typescript": "^4.4.3"
   }
