@@ -8,6 +8,9 @@
     "outDir": "./dist",
     "rootDir": "./lib"
   },
+  "include": [
+    "*.ts"
+  ],
   "exclude": [
     "node_modules"
   ]

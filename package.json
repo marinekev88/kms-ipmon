@@ -8,7 +8,7 @@
     "build": "tsc",
     "test": "tsc && mocha --reporter spec",
     "lint": "tslint -p tsconfig.json",
-    "format": "prettier --write \"lib/*.ts\""
+    "format": "prettier --write \"lib/**/*.ts\""
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,9 @@
     "url": "https://github.com/marinekev88/kms-ipmon/issues"
   },
   "homepage": "https://github.com/marinekev88/kms-ipmon#readme",
+  "files": [
+    "dist/**/*"
+  ],
   "dependencies": {
     "axios": "^0.22.0"
   },
