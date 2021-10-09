@@ -5,8 +5,8 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
-    "test": "tsc && mocha --reporter spec",
+    "build": "tsc && npm run test",
+    "test": "mocha --reporter spec",
     "lint": "tslint -p tsconfig.json",
     "format": "prettier --write \"lib/**/*.ts\""
   },
@@ -20,9 +20,6 @@
     "url": "https://github.com/marinekev88/kms-ipmon/issues"
   },
   "homepage": "https://github.com/marinekev88/kms-ipmon#readme",
-  "files": [
-    "dist/**/*"
-  ],
   "dependencies": {
     "axios": "^0.22.0"
   },

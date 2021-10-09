@@ -2,3 +2,7 @@
 .prettierrc
 tsconfig.json
 tslint.json
+
+lib
+test
+
