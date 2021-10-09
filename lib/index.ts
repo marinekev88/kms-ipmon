@@ -19,7 +19,7 @@ export class Kms {
       },
     };
 
-    return await axios.request(config).then((res) => res.data);
+    return await axios.request(config).then((res:AxiosResponse<any>) => res.data);
   };
 
   getIp4 = async (): Promise<AxiosResponse> => {
