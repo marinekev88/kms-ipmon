@@ -5,10 +5,15 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "prepare": "npm run build",
+    "preversion": "npm run lint",
+    "prepublishOnly": "npm test && npm run lint",
     "build": "tsc && npm run test",
     "test": "mocha --reporter spec",
     "lint": "tslint -p tsconfig.json",
-    "format": "prettier --write \"lib/**/*.ts\""
+    "format": "prettier --write \"lib/**/*.ts\"",
+    "version": "npm run format && git add -A lib",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
