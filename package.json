@@ -9,7 +9,7 @@
     "test": "mocha --reporter spec",
     "preversion": "npm run lint",
     "prepublishOnly": "npm test && npm run lint",
-    "build": "tsc && npm test",
+    "build": "tsc",
     "lint": "tslint -p tsconfig.json",
     "format": "prettier --write \"lib/**/*.ts\"",
     "version": "npm run format && git add -A lib",
