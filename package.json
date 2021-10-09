@@ -6,10 +6,10 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "prepare": "npm run build",
+    "test": "mocha --reporter spec",
     "preversion": "npm run lint",
     "prepublishOnly": "npm test && npm run lint",
-    "build": "tsc && npm run test",
-    "test": "mocha --reporter spec",
+    "build": "tsc && npm test",
     "lint": "tslint -p tsconfig.json",
     "format": "prettier --write \"lib/**/*.ts\"",
     "version": "npm run format && git add -A lib",
