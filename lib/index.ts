@@ -15,8 +15,8 @@ export class Kms {
       method: 'GET',
       url: Url,
       headers: {
-        accept: 'application/json'
-      }
+        accept: 'application/json',
+      },
     };
 
     return await axios.request(config).then((res) => res.data);
