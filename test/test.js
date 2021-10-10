@@ -1,5 +1,6 @@
 import Chai from 'chai';
 import Kms from '../dist/index.js';
+import HttpStatus from 'http-status-codes';
 
 const expect = Chai.expect;
 const _mockKms = new Kms();
@@ -14,4 +15,9 @@ describe('Return String Ip Address', () => {
         let res = await _mockKms.getIp6();
         expect(res).to.be.a('string');
     });
+
+    it('Should Return HttpStatus number', async () => {
+        let res = await _mockKms.networkTest('https://api.kmserver.co/api/v1/HealthCheck/Status');
+        expect(res).to.equal(HttpStatus.OK);
+    })
 });

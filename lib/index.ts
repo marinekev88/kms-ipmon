@@ -25,9 +25,16 @@ class Kms {
   getIp4 = async (): Promise<AxiosResponse> => {
     return await this.main(this._url4);
   };
+
   getIp6 = async (): Promise<AxiosResponse> => {
     return await this.main(this._url6);
   };
+
+  networkTest = async (Url: string): Promise<number> => {
+    const response: AxiosResponse = await axios.get(Url, { headers: { accept: 'application/json' }});
+    return response.status;
+  };
+
 }
 
 export default Kms;
