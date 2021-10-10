@@ -31,10 +31,9 @@ class Kms {
   };
 
   networkTest = async (Url: string): Promise<number> => {
-    const response: AxiosResponse = await axios.get(Url, { headers: { accept: 'application/json' }});
+    const response: AxiosResponse = await axios.get(Url, { headers: { accept: 'application/json' } });
     return response.status;
   };
-
 }
 
 export default Kms;
