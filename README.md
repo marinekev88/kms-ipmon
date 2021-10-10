@@ -3,7 +3,7 @@ Server Public Ip Monitoring Class For 'api.ipify.org'
 
 ## Installation 
 ```sh
-npm i -S kms-ipmon [non-shorthand: npm install kms-ipmon --save]
+npm i -S kms-ipmon
 yarn add kms-ipmon
 bower install kms-ipmon --save 
 ```
@@ -11,28 +11,49 @@ bower install kms-ipmon --save
 ## Usage
 ###Javascript
 ```javascript
-const { Kms } = require('kms-ipmon');
-const app = new Kms();
+//Add {"type": "module"} to package.json of your project//
+import Kms from 'kms-ipmon';
+const _service = new Kms(); // You can name your const what ever you want and new up a Kms instance //
 //For Ip V4
-app.getIp4().then(res => console.log(res));
+_service.getIp4().then(res => console.log(res));
 //For Ip V6
-app.getIp6().then(res => console.log(res));
+_service.getIp6().then(res => console.log(res));
 ```
 ###Typescript
 
 ```typescript
-import { Kms } from "kms-ipmon";
-const app: Kms = new Kms();
-//For Ip V4
-app.getIp4().then(res => console.log(res));
-//For Ip V6
-app.getIp6().then(res => console.log(res));
+import Kms from "kms-ipmon";
+const _service: Kms = new Kms(); // You can name your const what ever you want and new up a Kms instance //
+//For Ip V4 To Console
+_service.getIp4().then(res => console.log(res));
+//For Ip V6 To Console
+_service.getIp6().then(res => console.log(res));
 ```
 ```shell
 Sample output to console
 35.45.1.223
 ```
-## Test
+```javascript
+
+//Using is as a variable
+import Kms from "kms-ipmon";
+const _service = new Kms();
+
+let currentIp = '000.000.0.0'; //Or whatever you monitoring
+let ip = await _service.getIp4();
+
+if (ip != currentIp) 
+  throw 'Ip Has Changed'
+
+```
+# Contributing Code Changes
+## Testing
 ```shell
-npm run test
+git clone https://github.com/marinekev88/kms-ipmon.git
+cd kms-ipmon
+
+npm i
+npm run build
+
+npm test
 ```

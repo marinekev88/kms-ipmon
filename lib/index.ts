@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
-export class Kms {
+class Kms {
   private readonly _url4: string;
   private readonly _url6: string;
 
@@ -29,3 +29,5 @@ export class Kms {
     return await this.main(this._url6);
   };
 }
+
+export default Kms;

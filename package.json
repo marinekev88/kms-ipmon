@@ -2,6 +2,7 @@
   "name": "kms-ipmon",
   "version": "1.0.7",
   "description": "Server Public Ip Checker",
+  "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
