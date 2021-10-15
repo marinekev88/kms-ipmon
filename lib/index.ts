@@ -1,6 +1,6 @@
-import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosResponse, AxiosRequestConfig } from "axios";
 
-class Kms {
+export class Kms {
   private readonly _url4: string;
   private readonly _url6: string;
 
@@ -35,5 +35,3 @@ class Kms {
     return response.status;
   };
 }
-
-export default Kms;

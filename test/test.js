@@ -1,8 +1,7 @@
-import Chai from 'chai';
-import Kms from '../dist/index.js';
-import HttpStatus from 'http-status-codes';
+const expect = require('chai').expect;
+const { Kms } = require("../dist");
+const HttpStatus = require('http-status-codes');
 
-const expect = Chai.expect;
 const _mockKms = new Kms();
 
 describe('Return String Ip Address', () => {
