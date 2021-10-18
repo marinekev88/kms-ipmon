@@ -1,5 +1,8 @@
 {
   "extends": [
-    "config:base"
-  ]
+    "config:base",
+    ":disableMajorUpdates",
+    ":timezone(America/Phoenix)",
+    "schedule:weekly"
+   ]
 }
