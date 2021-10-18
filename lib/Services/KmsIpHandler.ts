@@ -19,24 +19,19 @@ class KmsIP {
             },
         };
 
-        const res:AxiosResponse = await axios.request(config);
-        
-        if (Url === this._url4 || Url === this._url6)
-            return res.data;
-        else
-            return res;
+        return await axios.request(config);
     };
 
-    getIp4 = async (): Promise<AxiosResponse> => {
-        return await this.main(this._url4);
+    getIp4 = async (): Promise<any> => {
+        return await this.main(this._url4).then(res => res.data);
     };
 
-    getIp6 = async (): Promise<AxiosResponse> => {
-        return await this.main(this._url6);
+    getIp6 = async (): Promise<any> => {
+        return await this.main(this._url6).then(res => res.data);
     };
 
     networkTest = async (Url: string): Promise<number> => {
-        const response: AxiosResponse = await this.main(Url);
+        const response: AxiosResponse = await this.main(Url)
         return response.status;
     };
 }

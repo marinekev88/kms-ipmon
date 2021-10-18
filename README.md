@@ -47,11 +47,11 @@ import {KmsIP} from "kms-ipmon";
 const _service = new KmsIP();
 
 (async () => {
-  let currentIp = '000.000.0.0'; //Or whatever you monitoring
-  let ip = await _service.getIp4();
+  const currentIp = '000.000.0.0'; //Or whatever you monitoring
+  const ip = await _service.getIp4();
 
   if (ip != currentIp) {
-    let netTest = await _service.networkTest('https://someendpointtotest.com');
+    const netTest = await _service.networkTest('https://someendpointtotest.com');
     if(netTest != HttpStatus.OK)
       throw 'Some Notifiation or automation to update'
   }  
