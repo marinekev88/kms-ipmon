@@ -1,5 +1,10 @@
 {
   "extends": [
-    "config:base"
-  ]
+    "config:base",
+    ":automergeMinor",
+    ":automergeBranch",
+    ":disableMajorUpdates",
+    ":timezone(America/Phoenix)",
+    "schedule:weekly"
+   ]
 }
