@@ -4,20 +4,10 @@ import { DnsExitData, DnsExitUpdate, Domain } from '../Models/DnsExitModel';
 class DnsExit {
   private readonly _key: string;
   private readonly _rootApi: string;
-  private readonly _config: AxiosRequestConfig;
 
   constructor(ApiKey: string) {
     this._key = ApiKey;
     this._rootApi = 'https://api.dnsexit.com/dns/';
-
-    this._config = {
-      method: 'POST',
-      url: this._rootApi,
-      headers: {
-        accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-    };
   }
 
   private DomainUpdateHandler = async (Data: DnsExitData, RecordType: string): Promise<boolean> => {
@@ -32,15 +22,23 @@ class DnsExit {
       };
       domainUpdateList.push(domainData);
     }
-
-    this._config.data = {
-      apikey: this._key,
-      domain: Data.RootDomain,
-      update: domainUpdateList,
-    };
+    
+    const config: AxiosRequestConfig = {
+      method: 'POST',
+      url: this._rootApi,
+      headers: {
+        accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      data: {
+        apikey: this._key,
+        domain: Data.RootDomain,
+        update: domainUpdateList,
+      }
+    }
 
     try {
-      return await axios.request(this._config);
+      return await axios.request(config);
     } catch (err: unknown) {
       console.log(err);
       return false;
