@@ -1,5 +1,6 @@
 .idea
 .prettierrc
+renovate.json
 tsconfig.json
 tslint.json
 

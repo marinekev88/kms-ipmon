@@ -3,27 +3,26 @@ import { Domain, GodaddyBase, GodaddyDomain } from '../Models/GodaddyModel';
 
 class GodaddyProvider {
   private readonly _apiRoot: string;
-  private _config: AxiosRequestConfig;
+  private readonly _credentials: string;
 
   constructor(ApiCredentials: string) {
     this._apiRoot = 'https://api.godaddy.com/v1/';
-    this._config = {
-      headers: {
-        accept: 'application/json',
-        'Content-Type': 'application/json',
-        Authorization: `sso-key ${ApiCredentials}`,
-      },
-    };
+    this._credentials = ApiCredentials;
   }
 
   private DomainUpdateHandler = async (DataPack: GodaddyBase): Promise<boolean> => {
-    this._config = {
+    const config: AxiosRequestConfig = {
       method: 'PUT',
       url: this._apiRoot + DataPack.url,
+      headers: {
+        accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `sso-key ${this._credentials}`,
+      },
       data: DataPack.data,
     };
 
-    return await axios.request(this._config);
+    return await axios.request(config);
   };
 
   private DomainDataMapper = async (Data: GodaddyBase, DomainList: Domain[]): Promise<boolean> => {
