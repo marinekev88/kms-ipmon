@@ -22,7 +22,7 @@ class DnsExit {
       };
       domainUpdateList.push(domainData);
     }
-    
+
     const config: AxiosRequestConfig = {
       method: 'POST',
       url: this._rootApi,
@@ -34,8 +34,8 @@ class DnsExit {
         apikey: this._key,
         domain: Data.RootDomain,
         update: domainUpdateList,
-      }
-    }
+      },
+    };
 
     try {
       return await axios.request(config);
