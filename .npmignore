@@ -7,3 +7,4 @@ tslint.json
 lib
 test
 
+node_modules

@@ -35,4 +35,4 @@ class KmsIP {
   };
 }
 
-export default KmsIP;
+export { KmsIP };

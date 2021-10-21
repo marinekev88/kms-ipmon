@@ -1,5 +1,5 @@
 ﻿import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
-import { DnsExitData, DnsExitUpdate, Domain } from '../Models/DnsExitModel';
+import { DnsExitData, DnsExitUpdate } from '../Models';
 
 class DnsExit {
   private readonly _key: string;
@@ -48,7 +48,7 @@ class DnsExit {
   UpdateARecords = async (
     IpAddressUpdate: AxiosResponse,
     rootDomain: string,
-    subDomains: Domain[]
+    subDomains: string[]
   ): Promise<boolean> => {
     const Record = 'A';
     const UpdateData: DnsExitData = {

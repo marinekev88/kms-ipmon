@@ -1,5 +1,5 @@
 ﻿import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
-import { Domain, GodaddyBase, GodaddyDomain } from '../Models/GodaddyModel';
+import { GodaddyBase, GodaddyDomain } from '../Models';
 
 class GodaddyProvider {
   private readonly _apiRoot: string;
@@ -25,7 +25,7 @@ class GodaddyProvider {
     return await axios.request(config);
   };
 
-  private DomainDataMapper = async (Data: GodaddyBase, DomainList: Domain[]): Promise<boolean> => {
+  private DomainDataMapper = async (Data: GodaddyBase, DomainList: string[]): Promise<boolean> => {
     const updateList: GodaddyDomain[] = [];
 
     for (const sub of DomainList) {
@@ -60,7 +60,7 @@ class GodaddyProvider {
   UpdateARecords = async (
     IpAddressUpdate: AxiosResponse,
     rootDomain: string,
-    subDomains: Domain[]
+    subDomains: string[]
   ): Promise<boolean> => {
     const updateUrl: string = `domains/${rootDomain}/records/A`;
 
