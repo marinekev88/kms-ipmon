@@ -12,7 +12,7 @@ bower install kms-ipmon --save
 ###Javascript
 ```javascript
 //Add {"type": "module"} to package.json of your project//
-import Kms from 'kms-ipmon';
+import { Kms } from 'kms-ipmon';
 const _service = new Kms(); // You can name your const what ever you want and new up a Kms instance//
 //For Ip V4
 _service.getIp4().then(res => console.log(res));
@@ -24,7 +24,7 @@ _service.networkTest('https://google.com').then(res => console.log(res));
 ###Typescript
 
 ```typescript
-import Kms from "kms-ipmon";
+import { Kms } from "kms-ipmon";
 const _service: Kms = new Kms(); // You can name your const what ever you want and new up a Kms instance //
 //For Ip V4 To Console
 _service.getIp4().then(res => console.log(res));
@@ -43,7 +43,7 @@ Sample networkTest output to console
 ```javascript
 
 //Using as a variable
-import Kms from "kms-ipmon";
+import { Kms } from "kms-ipmon";
 const _service = new Kms();
 
 (async () => {
