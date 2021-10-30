@@ -57,6 +57,21 @@ const _service = new KmsIP();
   }  
 })();
 ```
+ ###DNS Provider Update
+The beta branch is being updated to include popular DNS providers in order to\
+allow this monitor package to be inclusive of home lab developers on Dynamic Ip's\
+\
+The Current Providers:
+  - GoDaddy 
+  - DnsExit
+
+The Planned Provider Additions:
+  - BlueHost
+  - HostGator
+  - A2Hosting
+  - IONOS/1N1
+
+Please Email <a href="mailto:km@xpro.dev">Me</a> with any suggestions on providers with a link to their developer api page.
 # Contributing Code Changes
 ## Pull Requests
 - All PR's require approval for merge, make sure any tests created are covering you class/code. 
