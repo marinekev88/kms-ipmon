@@ -58,6 +58,10 @@ const _service = new KmsIP();
 })();
 ```
 # Contributing Code Changes
+## Pull Requests
+- All PR's require approval for merge, make sure any tests created are covering you class/code. 
+- Make sure to document you changes and their purpose clearly so I can approve them quickly.
+- Any question's regarding PR's can be emailed to me.
 ## Testing
 ```shell
 git clone https://github.com/marinekev88/kms-ipmon.git
