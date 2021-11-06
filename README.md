@@ -12,7 +12,7 @@ bower install kms-ipmon --save
 ###Javascript
 ```javascript
 //Add {"type": "module"} to package.json of your project//
-import {KmsIP} from 'kms-ipmon';
+import { KmsIP } from 'kms-ipmon';
 const _service = new KmsIP(); // You can name your const what ever you want and new up a Kms instance//
 //For Ip V4
 _service.getIp4().then(res => console.log(res));
@@ -24,7 +24,7 @@ _service.networkTest('https://google.com').then(res => console.log(res));
 ###Typescript
 
 ```typescript
-import {KmsIP} from 'kms-ipmon';
+import { KmsIP } from 'kms-ipmon';
 const _service: KmsIP = new KmsIP(); // You can name your const what ever you want and new up a Kms instance //
 //For Ip V4 To Console
 _service.getIp4().then(res => console.log(res));
@@ -43,7 +43,7 @@ Sample networkTest output to console
 ```javascript
 
 //Using as a variable
-import {KmsIP} from "kms-ipmon";
+import { KmsIP } from "kms-ipmon";
 const _service = new KmsIP();
 
 (async () => {
@@ -66,21 +66,21 @@ The Current Providers:
   - DnsExit
 
 The Planned Provider Additions:
-  - BlueHost
-  - HostGator
-  - A2Hosting
-  - IONOS/1N1
+  - BlueHost << Currently does not have a developer API 
+  - HostGator << Requires an active customer account which I do not have
+  - IONOS/1N1 [https://developer.hosting.ionos.com/docs/dns]
 
 Please Email <a href="mailto:km@xpro.dev">Me</a> with any suggestions on providers with a link to their developer api page.
  ###DNS Usage
   ####Godaddy:
 ```javascript
 // Import the Provider and Ip Getter
-import { GodaddyProvider, KmsIP } from "kms-ipmon";
+import { GodaddyProvider, DnsExit, KmsIP } from "kms-ipmon";
 
 // You need to provide your API key that you
 // get from https://developers.godaddy.com to the constructor
-const _provider = new GodaddyProvider("YOUR_GODADDY_API_KEY");
+const _godaddy = new GodaddyProvider("YOUR_GODADDY_API_KEY"); // Godaddy format is "apikeystring:apisecretstring" << Conjoin the key and secret
+const _dnsExit = new DnsExit("YOUR_DNSEXIT_API_KEY");
 const _service = new KmsIP();
 
 // Current functionalitiy will only update "A" records of root domain and subdomains
@@ -98,7 +98,7 @@ const Updater = async () => {
         subdomains: [ "@", "shop", "buy", "support" ]
     }
     // Returns a bool value upon updating data
-    return await _provider.UpdateARecords(newIp, updateObject.rootDomian, updateObject.subdomains);
+    return await _godaddy.UpdateARecords(newIp, updateObject.rootDomian, updateObject.subdomains);
     
     // The reason of splitting the root and the subdomain list 
     // was for users to be able to write their data in different ways
