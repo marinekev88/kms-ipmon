@@ -45,11 +45,7 @@ class DnsExit {
     }
   };
 
-  UpdateARecords = async (
-    IpAddressUpdate: AxiosResponse,
-    rootDomain: string,
-    subDomains: string[]
-  ): Promise<boolean> => {
+  UpdateARecords = async (IpAddressUpdate: AxiosResponse, rootDomain: string, subDomains: string[]): Promise<boolean> => {
     const Record = 'A';
     const UpdateData: DnsExitData = {
       IpUpdate: IpAddressUpdate,

@@ -57,11 +57,7 @@ class GodaddyProvider {
   // Godaddy subdomain list will always be populated as the root domain requires the '@' to be in the subdomain list
   // This method will replace ALL 'A' records on the DNS... DONT USE TO UPDATE IF A RECORDS HAVE DIFFERENT IP's
 
-  UpdateARecords = async (
-    IpAddressUpdate: AxiosResponse,
-    rootDomain: string,
-    subDomains: string[]
-  ): Promise<boolean> => {
+  UpdateARecords = async (IpAddressUpdate: AxiosResponse, rootDomain: string, subDomains: string[]): Promise<boolean> => {
     const updateUrl: string = `domains/${rootDomain}/records/A`;
 
     const UpdateData: GodaddyBase = {
