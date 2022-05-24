@@ -16,7 +16,7 @@ describe('Return String Ip Address', () => {
     });
 
     it('Should Return HttpStatus number', async () => {
-        const res = await _mockKms.networkTest('https://api.kmserver.co/api/v1/HealthCheck/Status');
+        const res = await _mockKms.networkTest('https://api.kmserver.co/api/v2/status/get');
         expect(res).to.equal(HttpStatus.OK);
     })
 });
