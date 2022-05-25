@@ -10,7 +10,7 @@ class GodaddyProvider {
     this._credentials = ApiCredentials;
   }
 
-  private DomainUpdateHandler = async (DataPack: GodaddyBase): Promise<boolean> => {
+  private handler = async (DataPack: GodaddyBase): Promise<boolean> => {
     const config: AxiosRequestConfig = {
       method: 'PUT',
       url: this._apiRoot + DataPack.url,
@@ -25,7 +25,7 @@ class GodaddyProvider {
     return await axios.request(config);
   };
 
-  private DomainDataMapper = async (Data: GodaddyBase, DomainList: string[]): Promise<boolean> => {
+  private mapper = async (Data: GodaddyBase, DomainList: string[]): Promise<boolean> => {
     const updateList: GodaddyDomain[] = [];
 
     for (const sub of DomainList) {
@@ -47,7 +47,7 @@ class GodaddyProvider {
     };
 
     try {
-      return await this.DomainUpdateHandler(dataMap);
+      return await this.handler(dataMap);
     } catch (err: unknown) {
       console.log(err);
       return false;
@@ -61,14 +61,14 @@ class GodaddyProvider {
     const updateUrl: string = `domains/${rootDomain}/records/A`;
 
     const UpdateData: GodaddyBase = {
-      IpUpdate: IpAddressUpdate,
+      IpUpdate: IpAddressUpdate.toString(),
       RootDomain: rootDomain,
       type: 'A',
       url: updateUrl,
       data: [],
     };
 
-    return await this.DomainDataMapper(UpdateData, subDomains);
+    return await this.mapper(UpdateData, subDomains);
   };
 }
 

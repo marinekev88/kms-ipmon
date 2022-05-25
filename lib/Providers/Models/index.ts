@@ -28,3 +28,22 @@ export type DnsExitUpdate = {
   content: string | AxiosResponse;
   ttl: number;
 };
+
+export type IonosZoneResponseDto = {
+  id: string;
+  name: string;
+  type: string;
+  records: IonosRecordsDto[];
+};
+
+export type IonosRecordsDto = {
+  id?: string;
+  name: string;
+  rootName?: string;
+  type: string;
+  content: string;
+  changeDate?: string;
+  ttl: number;
+  disabled: boolean;
+  prio?: number;
+};

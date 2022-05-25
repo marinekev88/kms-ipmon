@@ -1,4 +1,4 @@
 import { KmsIP } from './Services/KmsIpHandler';
-import { GodaddyProvider, DnsExit } from './Providers';
+import { GodaddyProvider, DnsExit, Ionos } from './Providers';
 
-export { KmsIP, GodaddyProvider, DnsExit };
+export { KmsIP, GodaddyProvider, DnsExit, Ionos };
