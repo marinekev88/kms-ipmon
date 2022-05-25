@@ -5,14 +5,14 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "prepare": "npm run build",
+    "prepare": "yarn build",
     "test": "mocha --reporter spec",
-    "preversion": "npm run lint",
-    "prepublishOnly": "npm test && npm run lint",
-    "build": "npm run lint && tsc",
-    "lint": "tslint -p tsconfig.json && npm run format",
+    "preversion": "yarn lint",
+    "prepublishOnly": "yarn test && yarn lint",
+    "build": "yarn lint && tsc",
+    "lint": "tslint -p tsconfig.json && yarn format",
     "format": "prettier --write \"lib/**/*.ts\"",
-    "version": "npm run format && git add -A lib",
+    "version": "yarn format && git add -A lib",
     "postversion": "git push && git push --tags"
   },
   "repository": {
