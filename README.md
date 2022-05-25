@@ -64,23 +64,24 @@ allow this monitor package to be inclusive of home lab developers on Dynamic Ip'
 The Current Providers:
   - GoDaddy 
   - DnsExit
+  - Ionos
 
 The Planned Provider Additions:
   - BlueHost << Currently does not have a developer API 
   - HostGator << Requires an active customer account which I do not have
-  - IONOS/1N1 [https://developer.hosting.ionos.com/docs/dns]
 
 Please Email <a href="mailto:km@xpro.dev">Me</a> with any suggestions on providers with a link to their developer api page.
  ###DNS Usage
   ####Godaddy:
 ```javascript
 // Import the Provider and Ip Getter
-import { GodaddyProvider, DnsExit, KmsIP } from "kms-ipmon";
+import { GodaddyProvider, DnsExit, Ionos, KmsIP } from "kms-ipmon";
 
 // You need to provide your API key that you
 // get from https://developers.godaddy.com to the constructor
 const _godaddy = new GodaddyProvider("YOUR_GODADDY_API_KEY"); // Godaddy format is "apikeystring:apisecretstring" << Conjoin the key and secret
 const _dnsExit = new DnsExit("YOUR_DNSEXIT_API_KEY");
+const _ionos = new Ionos("YOUR_PUBLIC_PREFIX", "YOUR_SECRET_KEY");
 const _service = new KmsIP();
 
 // Current functionalitiy will only update "A" records of root domain and subdomains
