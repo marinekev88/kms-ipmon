@@ -1,7 +1,9 @@
 const expect = require('chai').expect;
-const { KmsIP } = require("../dist");
+const assert = require('chai').assert;
+require('dotenv').config();
+const { KmsIP, Ionos } = require("../dist");
 const HttpStatus = require('http-status-codes');
-
+const _mockIonosClient = new Ionos(`${process.env.IONOS_PREFIX}`, `${process.env.IONOS_SECRET}`);
 const _mockKms = new KmsIP();
 
 describe('Return String Ip Address', () => {
@@ -20,5 +22,32 @@ describe('Return String Ip Address', () => {
         expect(res).to.equal(HttpStatus.OK);
     })
 });
+
+describe('Return data from ionos', () => {
+   it('Returns a response', async (done) => {
+        const domain = "kmsdev.io";
+        const subDomains = ["test"];
+        const newIp = "72.210.62.7";
+
+        _mockIonosClient.UpdateARecords(newIp, domain, subDomains).then((res) => {
+            res.to.be.equal(true);
+        })
+
+        done();
+    });
+
+    it("Returns Error No Domain Id Found", async () => {
+
+        const domain = "kmdev.io";
+        const subDomains = ["test"];
+        const newIp = "72.210.62.7";
+
+        _mockIonosClient.UpdateARecords(newIp, domain, subDomains)
+            .then((res) => console.dir(res, { depth: null }))
+            .catch((err) => {
+                console.dir(err, { depth: null })
+            });
+    })
+})
 
 

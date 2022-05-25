@@ -10,7 +10,7 @@ class DnsExit {
     this._rootApi = 'https://api.dnsexit.com/dns/';
   }
 
-  private DomainUpdateHandler = async (Data: DnsExitData, RecordType: string): Promise<boolean> => {
+  private handler = async (Data: DnsExitData, RecordType: string): Promise<boolean> => {
     const domainUpdateList: DnsExitUpdate[] = [];
 
     for (const dom of Data.DomainList) {
@@ -48,12 +48,12 @@ class DnsExit {
   UpdateARecords = async (IpAddressUpdate: AxiosResponse, rootDomain: string, subDomains: string[]): Promise<boolean> => {
     const Record = 'A';
     const UpdateData: DnsExitData = {
-      IpUpdate: IpAddressUpdate,
+      IpUpdate: IpAddressUpdate.toString(),
       RootDomain: rootDomain,
       DomainList: subDomains,
     };
 
-    return await this.DomainUpdateHandler(UpdateData, Record);
+    return await this.handler(UpdateData, Record);
   };
 }
 
